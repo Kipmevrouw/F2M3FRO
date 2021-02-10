@@ -64,17 +64,17 @@ const uitvoeren = () => {
         if( obj.tempGewenst > obj.tempBinnen ){
             html += `<div> <img class="icon" src="icons/vlam.svg" alt="CV aan"> </div>`;
         } else{
-            html += `<div> <img class="icon" src="icons/vlamUit.svg" alt="CV uit"> </div>`;
+            html += `<div> <img class="icon" src="icons/vlamUIt.svg" alt="CV uit"> </div>`;
         }
         if( obj.lichtKamer ){
             html += `<div> <img class="icon" src="icons/lampAan.svg" alt="Lampen aan"> </div>`;
         } else{
-            html += `<div> <img class="icon" src="icons/lampUit.svg" alt="Lampen uit"> </div>`;
+            html += `<div> <img class="icon" src="icons/lampUIt.svg" alt="Lampen uit"> </div>`;
         }
         if( obj.lichtBuiten ){
             html += `<div> <img class="icon" src="icons/lampAan.svg" alt="Lampen aan"> </div>`;
         } else{
-            html += `<div> <img class="icon" src="icons/lampUit.svg" alt="Lampen uit"> </div>`;
+            html += `<div> <img class="icon" src="icons/lampUIt.svg" alt="Lampen uit"> </div>`;
         }
         html += "</div>";
     });
