@@ -1,15 +1,30 @@
 const uitvoer = document.getElementById('uitvoer');
 let dataObject;
+const jsonKnop = document.getElementById('HaalJSON');
+const urlJson = 'https://gist.githubusercontent.com/Theo-denBlanken/193d989a2aab328f847f4357e7171dc5/raw/1ca3b05253dee0dac348b9ded4ada8a64d97ff5e/huisDataa.json';
+
+jsonKnop.addEventListener('click', () => {
+    jsonKnop.style.display = 'none';
+    const vraagServ = new XMLHttpRequest();
+    vraagServ.onreadystatechange = () => {
+        if( vraagServ.readyState == 4 && vraagServ.status == 200){
+            dataObject = JSON.parse( vraagServ.responseText);
+            uitvoeren();
+        }
+    }
+    vraagServ.open('GET', urlJson, true);
+    vraagServ.send();
+});
 
 const geefDagWeek = (num) => {
     switch (num) {
         case 0: return 'zondag'; break;
-        case 0: return 'maandag'; break;
-        case 0: return 'dinsdag'; break;
-        case 0: return 'woensdag'; break;
-        case 0: return 'donderdag'; break;
-        case 0: return 'vrijdag'; break;
-        case 0: return 'zaterdag'; break;
+        case 1: return 'maandag'; break;
+        case 2: return 'dinsdag'; break;
+        case 3: return 'woensdag'; break;
+        case 4: return 'donderdag'; break;
+        case 5: return 'vrijdag'; break;
+        case 6: return 'zaterdag'; break;
         default: return num;
     }
 }
@@ -32,6 +47,9 @@ const maandNaam = (num) => {
 }
 
 const maakDatum = (num) => {
+    if(typeof(num) == 'string') {
+        num = Date.parse(num);
+    }
     // zet de string van de js datum om in een betere vorm
     let datum =  new Date(num);
 
